@@ -14,11 +14,10 @@ jobs:
     steps:
       - name: Ping database Supabase
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           curl -fsS --retry 3 --retry-delay 10 -X POST \
-            "$SUPABASE_URL/rest/v1/rpc/info_warung" \
+            "https://ypdtvhbyzcjevlhhemjr.supabase.co/rest/v1/rpc/info_warung" \
             -H "apikey: $SUPABASE_ANON_KEY" \
             -H "Content-Type: application/json" \
             -d '{"p_slug":"keepalive"}'
